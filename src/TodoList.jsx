@@ -6,6 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
+import "./TodoList.css";
 
 const STORAGE_KEY = "todos"; // Constant for local storage key
 
@@ -74,14 +75,18 @@ export default function TodoList() {
     <section className="hero">
       <div>
         <Toaster richColors />
-        <h2>Creater Soumya Jagannath Ojha</h2>
+        <h2>Tasks to Do</h2>
         <TextField
           id="filled-basic"
-          variant="filled"
+          // label="Add Task"
+          // variant="filled"
           placeholder="Add Task"
           value={newtodo}
+          color="success"
+          size="small"
           onChange={updateTodoValue}
           required
+          focused
         />
         &nbsp; &nbsp;
         <Button
@@ -91,7 +96,7 @@ export default function TodoList() {
         >
           <AddIcon />
         </Button>
-        <h4>Tasks to Do</h4>
+        <h4>Your Task</h4>
         <div className="container">
           {todos.map((todo) => (
             <li key={todo.id}>

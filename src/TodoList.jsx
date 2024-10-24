@@ -71,6 +71,13 @@ export default function TodoList() {
 
     setTodos(Done);
   };
+
+  const handleKeyDown = (event) => {
+    if(event.key === 'Enter'){
+      addNewTask();
+    }
+  }
+
   return (
     <section className="hero">
       <div>
@@ -85,6 +92,7 @@ export default function TodoList() {
           color="success"
           size="small"
           onChange={updateTodoValue}
+          onKeyDown={handleKeyDown}
           required
           focused
         />
@@ -108,9 +116,8 @@ export default function TodoList() {
               <Button
                 variant="outlined"
                 color="error"
-                startIcon={<DeleteIcon />}
                 onClick={() => deleteTodo(todo.id)}
-              ></Button>
+              ><DeleteIcon /></Button>
               &nbsp; &nbsp;
               <Button
                 variant="contained"
